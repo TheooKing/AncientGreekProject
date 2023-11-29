@@ -2,12 +2,6 @@
 #include <string>
 #include <algorithm>
 using namespace std;
-string MakingThema(string,int);
-string CheckSpace(string);
-string MakingKataliksi(string,int);
-bool UnderstandingKataliksi(string);
-void AddingKataliksi(string,int);
-void AddingKataliksiTon(string,int);
 
 int StartUpQuestion1()
 {
@@ -50,7 +44,7 @@ string StartUpQuestion2()
 {
     string UserInput;
     
-    cout << "Ποιά είναι η λέξη που θέλεις να κλήσω;";
+    cout << "Ποιά είναι η λέξη που θέλεις να κλίσω;";
     
     getline(cin, UserInput);
     string InputWord = UserInput;
@@ -63,7 +57,7 @@ string CheckSpace(string Cleaner)
     return Cleaner;
 }
 
-string MakingThema(string Word,int Tense)
+string MakingThema(string Word, int Tense)
 {
     if(Tense == 1)
     {
@@ -87,7 +81,8 @@ string MakingThema(string Word,int Tense)
         Word.erase(LetNumbStart,LetNumbEnd);
         return Word;
     }
-    
+    cout << "There is an error with the code";
+    return "Error";
 }
 
 string MakingKataliksi(string Katal, int Tense)
@@ -114,6 +109,8 @@ string MakingKataliksi(string Katal, int Tense)
         Katal.erase(LetNumbStart,LetNumbEnd);
         return Katal;
     }
+    cout << "There is an error with the code";
+    return "Error";
 }
 
 bool UnderstandingKataliksi(string UnKatal)
@@ -234,8 +231,7 @@ int main()
 {
     //first question, asking for the tense
     int Que1 = StartUpQuestion1();
-    if(Que1 == 0)
-    {return 0;}
+    if(0 == Que1){return 0;}
     //second questin, asking for word
     string Que2 = StartUpQuestion2();
     //checking if the word has spaces and deleting them
@@ -244,6 +240,7 @@ int main()
     string Thema = MakingThema(CleanWord, Que1);
     //separating "kataliksi"
     string Kataliksi = MakingKataliksi(CleanWord, Que1); 
+    if("Error" == Kataliksi){return 0;}
     //understanding ktaliksi
     bool bUnKatal = UnderstandingKataliksi(Kataliksi);
     //adding kataliksi
