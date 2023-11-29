@@ -41,7 +41,7 @@ int StartUpQuestion1()
     else
     {
         //if the input doesn't match these...'
-        cout << "***PLease try again, incorrect input***";
+        cout << "***PLease try again, incorrect input***\n";
         return 0;
     }
 }
